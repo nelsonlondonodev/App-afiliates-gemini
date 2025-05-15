@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Barbería Deluxe - Programa de Fidelidad</title>
+    <link rel="stylesheet" href="main.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body class="antialiased">
+    <div class="min-h-screen flex flex-col">
+      <header class="bg-gray-900 shadow-lg sticky top-0 z-40">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex items-center justify-between h-20">
+            <div class="flex items-center">
+              <svg
+                class="logo-svg mr-3"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M19.69 6.69L17.29 4.29C16.9 3.9 16.9 3.27 17.29 2.88L18.71 1.46C19.1 1.07 19.73 1.07 20.12 1.46L22.54 3.88C22.93 4.27 22.93 4.9 22.54 5.29L21.12 6.71C20.73 7.1 20.1 7.1 19.71 6.71L19.69 6.69ZM12 2C11.45 2 11 2.45 11 3V6.5C11 6.78 11.22 7 11.5 7S12 6.78 12 6.5V3C12 2.45 11.55 2 11 2H12ZM6.5 7H3C2.45 7 2 6.55 2 6V5C2 4.45 2.45 4 3 4H6.5C6.78 4 7 4.22 7 4.5S6.78 5 6.5 5H3V6H6.5C6.78 6 7 6.22 7 6.5S6.78 7 6.5 7ZM17.5 7H21C21.55 7 22 6.55 22 6V5C22 4.45 21.55 4 21 4H17.5C17.22 4 17 4.22 17 4.5S17.22 5 17.5 5H21V6H17.5C17.22 6 17 6.22 17 6.5S17.22 7 17.5 7ZM12 17.25C10.21 17.25 8.75 15.79 8.75 14C8.75 12.21 10.21 10.75 12 10.75C13.79 10.75 15.25 12.21 15.25 14C15.25 15.79 13.79 17.25 12 17.25ZM12 9C9.24 9 7 11.24 7 14C7 16.76 9.24 19 12 19C14.76 19 17 16.76 17 14C17 11.24 14.76 9 12 9ZM12 22C11.45 22 11 21.55 11 21V17.5C11 17.22 11.22 17 11.5 17S12 17.22 12 17.5V21C12 21.55 11.55 22 11 22H12Z"
+                />
+              </svg>
+              <span class="font-bold text-2xl text-amber-500"
+                >BarberDeluxe</span
+              >
+            </div>
+            <nav class="hidden md:flex space-x-2">
+              <a
+                href="#home"
+                class="nav-link nav-link-active"
+                data-section="home-section"
+                >Inicio</a
+              >
+              <a
+                href="#services"
+                class="nav-link"
+                data-section="services-section"
+                >Servicios</a
+              >
+              <a href="#booking" class="nav-link" data-section="booking-section"
+                >Reservar</a
+              >
+              <a
+                href="#login"
+                class="nav-link"
+                id="nav-login"
+                data-section="login-section"
+                >Acceder</a
+              >
+              <a
+                href="#dashboard"
+                class="nav-link hidden"
+                id="nav-dashboard"
+                data-section="dashboard-section"
+                >Mi Cuenta</a
+              >
+              <button class="nav-link hidden" id="nav-logout">Salir</button>
+            </nav>
+            <div class="md:hidden">
+              <button
+                id="mobile-menu-button"
+                class="text-gray-300 hover:text-white focus:outline-none focus:text-white"
+              >
+                <i class="fas fa-bars text-2xl"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="mobile-menu" class="md:hidden hidden bg-gray-800">
+          <a
+            href="#home"
+            class="block nav-link text-center"
+            data-section="home-section"
+            >Inicio</a
+          >
+          <a
+            href="#services"
+            class="block nav-link text-center"
+            data-section="services-section"
+            >Servicios</a
+          >
+          <a
+            href="#booking"
+            class="block nav-link text-center"
+            data-section="booking-section"
+            >Reservar</a
+          >
+          <a
+            href="#login"
+            class="block nav-link text-center"
+            id="mobile-nav-login"
+            data-section="login-section"
+            >Acceder</a
+          >
+          <a
+            href="#dashboard"
+            class="block nav-link text-center hidden"
+            id="mobile-nav-dashboard"
+            data-section="dashboard-section"
+            >Mi Cuenta</a
+          >
+          <button
+            class="block nav-link text-center w-full hidden"
+            id="mobile-nav-logout"
+          >
+            Salir
+          </button>
+        </div>
+      </header>
+
+      <main class="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <section id="home-section" class="section active">
+          <div class="text-center py-12 md:py-20">
+            <h1 class="text-5xl md:text-6xl font-extrabold mb-6">
+              <span
+                class="bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-amber-600"
+              >
+                Estilo. Comunidad. Recompensa.
+              </span>
+            </h1>
+            <p class="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
+              Bienvenido a Barbería Deluxe, donde cada corte es una obra
+              maestra. Únete a nuestro programa de fidelidad, refiere amigos y
+              obtén beneficios exclusivos.
+            </p>
+            <div class="space-x-4">
+              <button
+                class="btn-primary text-lg px-8 py-3"
+                data-target-section="booking-section"
+              >
+                Reservar Ahora
+              </button>
+              <button
+                class="btn-secondary text-lg px-8 py-3"
+                data-target-section="register-section"
+              >
+                Únete al Club
+              </button>
+            </div>
+          </div>
+
+          <div class="grid md:grid-cols-3 gap-8 mt-16 text-center">
+            <div
+              class="card hover:shadow-amber-500/30 transform hover:-translate-y-1 transition-all duration-300"
+            >
+              <i class="fas fa-cut text-5xl text-amber-500 mb-4"></i>
+              <h3 class="text-2xl font-semibold mb-2">Cortes Expertos</h3>
+              <p class="text-gray-400">
+                Barberos profesionales listos para darte el look perfecto.
+              </p>
+            </div>
+            <div
+              class="card hover:shadow-amber-500/30 transform hover:-translate-y-1 transition-all duration-300"
+            >
+              <i class="fas fa-users text-5xl text-amber-500 mb-4"></i>
+              <h3 class="text-2xl font-semibold mb-2">Programa de Referidos</h3>
+              <p class="text-gray-400">
+                Invita amigos y ambos ganan. ¡Compartir tiene premio!
+              </p>
+            </div>
+            <div
+              class="card hover:shadow-amber-500/30 transform hover:-translate-y-1 transition-all duration-300"
+            >
+              <i class="fas fa-star text-5xl text-amber-500 mb-4"></i>
+              <h3 class="text-2xl font-semibold mb-2">Recompensas VIP</h3>
+              <p class="text-gray-400">
+                Acumula puntos con cada visita y canjéalos por servicios y
+                descuentos.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="services-section" class="section">
+          <h2 class="text-4xl font-bold text-center mb-12 text-amber-500">
+            Nuestros Servicios
+          </h2>
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="card">
+              <div class="h-10 flex items-center mb-4">
+                <div class="barber-pole mr-3"></div>
+                <h3 class="text-2xl font-semibold text-amber-400">
+                  Corte Clásico Caballero
+                </h3>
+              </div>
+              <p class="text-gray-400 mb-3">
+                El corte tradicional que nunca pasa de moda. Incluye lavado y
+                peinado.
+              </p>
+              <p class="text-xl font-bold text-white">20€</p>
+            </div>
+            <div class="card">
+              <div class="h-10 flex items-center mb-4">
+                <div class="barber-pole mr-3"></div>
+                <h3 class="text-2xl font-semibold text-amber-400">
+                  Arreglo de Barba
+                </h3>
+              </div>
+              <p class="text-gray-400 mb-3">
+                Diseño y perfilado de barba con toalla caliente y aceites
+                esenciales.
+              </p>
+              <p class="text-xl font-bold text-white">15€</p>
+            </div>
+            <div class="card">
+              <div class="h-10 flex items-center mb-4">
+                <div class="barber-pole mr-3"></div>
+                <h3 class="text-2xl font-semibold text-amber-400">
+                  Corte y Barba Deluxe
+                </h3>
+              </div>
+              <p class="text-gray-400 mb-3">
+                La experiencia completa: corte, arreglo de barba, lavado y
+                tratamiento.
+              </p>
+              <p class="text-xl font-bold text-white">30€</p>
+            </div>
+            <div class="card">
+              <div class="h-10 flex items-center mb-4">
+                <div class="barber-pole mr-3"></div>
+                <h3 class="text-2xl font-semibold text-amber-400">
+                  Corte Infantil
+                </h3>
+              </div>
+              <p class="text-gray-400 mb-3">
+                Cortes modernos y divertidos para los más pequeños (hasta 12
+                años).
+              </p>
+              <p class="text-xl font-bold text-white">12€</p>
+            </div>
+            <div class="card">
+              <div class="h-10 flex items-center mb-4">
+                <div class="barber-pole mr-3"></div>
+                <h3 class="text-2xl font-semibold text-amber-400">
+                  Afeitado Clásico
+                </h3>
+              </div>
+              <p class="text-gray-400 mb-3">
+                Afeitado tradicional con navaja, toallas calientes y masaje
+                facial.
+              </p>
+              <p class="text-xl font-bold text-white">18€</p>
+            </div>
+            <div class="card">
+              <div class="h-10 flex items-center mb-4">
+                <div class="barber-pole mr-3"></div>
+                <h3 class="text-2xl font-semibold text-amber-400">
+                  Tratamiento Capilar
+                </h3>
+              </div>
+              <p class="text-gray-400 mb-3">
+                Revitaliza tu cabello con nuestros tratamientos anticaída y
+                fortalecedores.
+              </p>
+              <p class="text-xl font-bold text-white">Desde 25€</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="booking-section" class="section">
+          <h2 class="text-4xl font-bold text-center mb-12 text-amber-500">
+            Reserva tu Cita
+          </h2>
+          <div class="max-w-lg mx-auto card">
+            <form id="booking-form">
+              <div class="mb-4">
+                <label
+                  for="booking-name"
+                  class="block text-sm font-medium text-gray-300 mb-1"
+                  >Nombre Completo</label
+                >
+                <input
+                  type="text"
+                  id="booking-name"
+                  class="input-field"
+                  required
+                  placeholder="Ej: Juan Pérez"
+                />
+              </div>
+              <div class="mb-4">
+                <label
+                  for="booking-service"
+                  class="block text-sm font-medium text-gray-300 mb-1"
+                  >Servicio</label
+                >
+                <select id="booking-service" class="input-field" required>
+                  <option value="">Selecciona un servicio...</option>
+                  <option value="corte-clasico" data-price="20">
+                    Corte Clásico Caballero (20€)
+                  </option>
+                  <option value="arreglo-barba" data-price="15">
+                    Arreglo de Barba (15€)
+                  </option>
+                  <option value="corte-barba-deluxe" data-price="30">
+                    Corte y Barba Deluxe (30€)
+                  </option>
+                  <option value="corte-infantil" data-price="12">
+                    Corte Infantil (12€)
+                  </option>
+                  <option value="afeitado-clasico" data-price="18">
+                    Afeitado Clásico (18€)
+                  </option>
+                  <option value="tratamiento-capilar" data-price="25">
+                    Tratamiento Capilar (desde 25€)
+                  </option>
+                </select>
+              </div>
+              <div class="grid grid-cols-2 gap-4 mb-4">
+                <div>
+                  <label
+                    for="booking-date"
+                    class="block text-sm font-medium text-gray-300 mb-1"
+                    >Fecha</label
+                  >
+                  <input
+                    type="date"
+                    id="booking-date"
+                    class="input-field"
+                    required
+                  />
+                </div>
+                <div>
+                  <label
+                    for="booking-time"
+                    class="block text-sm font-medium text-gray-300 mb-1"
+                    >Hora</label
+                  >
+                  <input
+                    type="time"
+                    id="booking-time"
+                    class="input-field"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="mb-6">
+                <label
+                  for="booking-referral"
+                  class="block text-sm font-medium text-gray-300 mb-1"
+                  >Código de Referido (Opcional)</label
+                >
+                <input
+                  type="text"
+                  id="booking-referral"
+                  class="input-field"
+                  placeholder="Ej: AMIGO10"
+                />
+              </div>
+              <button type="submit" class="btn-primary w-full">
+                Confirmar Reserva
+              </button>
+            </form>
+          </div>
+        </section>
+
+        <section id="login-section" class="section">
+          <h2 class="text-4xl font-bold text-center mb-12 text-amber-500">
+            Accede a tu Cuenta
+          </h2>
+          <div class="max-w-md mx-auto card">
+            <form id="login-form">
+              <div class="mb-4">
+                <label
+                  for="login-email"
+                  class="block text-sm font-medium text-gray-300 mb-1"
+                  >Email</label
+                >
+                <input
+                  type="email"
+                  id="login-email"
+                  class="input-field"
+                  required
+                  placeholder="tu@email.com"
+                />
+              </div>
+              <div class="mb-6">
+                <label
+                  for="login-password"
+                  class="block text-sm font-medium text-gray-300 mb-1"
+                  >Contraseña</label
+                >
+                <input
+                  type="password"
+                  id="login-password"
+                  class="input-field"
+                  required
+                  placeholder="********"
+                />
+              </div>
+              <button type="submit" class="btn-primary w-full">Entrar</button>
+            </form>
+            <p class="text-center mt-6 text-gray-400">
+              ¿No tienes cuenta?
+              <a
+                href="#register"
+                class="font-medium text-amber-500 hover:underline"
+                data-target-section="register-section"
+                >Regístrate aquí</a
+              >.
+            </p>
+          </div>
+        </section>
+
+        <section id="register-section" class="section">
+          <h2 class="text-4xl font-bold text-center mb-12 text-amber-500">
+            Crea tu Cuenta
+          </h2>
+          <div class="max-w-md mx-auto card">
+            <form id="register-form">
+              <div class="mb-4">
+                <label
+                  for="register-name"
+                  class="block text-sm font-medium text-gray-300 mb-1"
+                  >Nombre Completo</label
+                >
+                <input
+                  type="text"
+                  id="register-name"
+                  class="input-field"
+                  required
+                  placeholder="Ej: Juan Pérez"
+                />
+              </div>
+              <div class="mb-4">
+                <label
+                  for="register-email"
+                  class="block text-sm font-medium text-gray-300 mb-1"
+                  >Email</label
+                >
+                <input
+                  type="email"
+                  id="register-email"
+                  class="input-field"
+                  required
+                  placeholder="tu@email.com"
+                />
+              </div>
+              <div class="mb-4">
+                <label
+                  for="register-password"
+                  class="block text-sm font-medium text-gray-300 mb-1"
+                  >Contraseña</label
+                >
+                <input
+                  type="password"
+                  id="register-password"
+                  class="input-field"
+                  required
+                  placeholder="Mínimo 6 caracteres"
+                />
+              </div>
+              <div class="mb-6">
+                <label
+                  for="register-referral"
+                  class="block text-sm font-medium text-gray-300 mb-1"
+                  >Código de Referido (Si tienes uno)</label
+                >
+                <input
+                  type="text"
+                  id="register-referral"
+                  class="input-field"
+                  placeholder="Ej: AMIGO10"
+                />
+              </div>
+              <button type="submit" class="btn-primary w-full">
+                Crear Cuenta
+              </button>
+            </form>
+            <p class="text-center mt-6 text-gray-400">
+              ¿Ya tienes cuenta?
+              <a
+                href="#login"
+                class="font-medium text-amber-500 hover:underline"
+                data-target-section="login-section"
+                >Accede aquí</a
+              >.
+            </p>
+          </div>
+        </section>
+
+        <section id="dashboard-section" class="section">
+          <h2 class="text-4xl font-bold mb-8 text-amber-500">
+            Bienvenido, <span id="user-name-display"></span>!
+          </h2>
+
+          <div class="grid md:grid-cols-2 gap-8">
+            <div class="card">
+              <h3 class="text-2xl font-semibold text-amber-400 mb-4">
+                Tu Programa de Referidos
+              </h3>
+              <p class="text-gray-300 mb-2">
+                Comparte tu código y gana recompensas:
+              </p>
+              <div class="flex items-center bg-gray-700 p-3 rounded-lg mb-4">
+                <input
+                  type="text"
+                  id="referral-code-display"
+                  class="bg-transparent text-xl font-mono text-white flex-grow focus:outline-none"
+                  readonly
+                />
+                <button
+                  id="copy-referral-code"
+                  class="ml-3 text-amber-500 hover:text-amber-400"
+                  title="Copiar código"
+                >
+                  <i class="fas fa-copy text-lg"></i>
+                </button>
+              </div>
+              <p class="text-sm text-gray-400 mb-1">
+                <i class="fas fa-gift mr-2 text-green-400"></i>Tu amigo obtiene
+                <span class="font-bold">10% de descuento</span> en su primer
+                servicio.
+              </p>
+              <p class="text-sm text-gray-400">
+                <i class="fas fa-award mr-2 text-yellow-400"></i>Tú obtienes
+                <span class="font-bold">50 puntos</span> por cada amigo que
+                complete su primer servicio.
+              </p>
+
+              <div class="mt-6">
+                <h4 class="text-lg font-semibold text-gray-200 mb-2">
+                  Amigos Referidos: <span id="referral-count">0</span>
+                </h4>
+                <ul
+                  id="referral-list"
+                  class="text-sm text-gray-400 space-y-1"
+                ></ul>
+              </div>
+            </div>
+
+            <div class="card">
+              <h3 class="text-2xl font-semibold text-amber-400 mb-4">
+                Tus Puntos y Recompensas
+              </h3>
+              <p class="text-6xl font-bold text-center text-white my-6">
+                <span id="loyalty-points-display">0</span>
+                <span class="text-2xl text-gray-400">puntos</span>
+              </p>
+
+              <h4 class="text-lg font-semibold text-gray-200 mb-3">
+                Recompensas Disponibles:
+              </h4>
+              <ul class="space-y-3">
+                <li
+                  class="flex justify-between items-center p-3 bg-gray-700 rounded-lg"
+                >
+                  <div>
+                    <p class="font-semibold text-white">
+                      10% Descuento en Corte
+                    </p>
+                    <p class="text-sm text-gray-400">Requiere: 200 puntos</p>
+                  </div>
+                  <button
+                    class="btn-secondary btn-sm px-3 py-1 text-xs redeem-reward-btn"
+                    data-points="200"
+                    data-reward="10% Descuento en Corte"
+                  >
+                    Canjear
+                  </button>
+                </li>
+                <li
+                  class="flex justify-between items-center p-3 bg-gray-700 rounded-lg"
+                >
+                  <div>
+                    <p class="font-semibold text-white">
+                      Arreglo de Barba Gratis
+                    </p>
+                    <p class="text-sm text-gray-400">Requiere: 350 puntos</p>
+                  </div>
+                  <button
+                    class="btn-secondary btn-sm px-3 py-1 text-xs redeem-reward-btn"
+                    data-points="350"
+                    data-reward="Arreglo de Barba Gratis"
+                  >
+                    Canjear
+                  </button>
+                </li>
+                <li
+                  class="flex justify-between items-center p-3 bg-gray-700 rounded-lg"
+                >
+                  <div>
+                    <p class="font-semibold text-white">
+                      Producto de Styling Gratis
+                    </p>
+                    <p class="text-sm text-gray-400">Requiere: 500 puntos</p>
+                  </div>
+                  <button
+                    class="btn-secondary btn-sm px-3 py-1 text-xs redeem-reward-btn"
+                    data-points="500"
+                    data-reward="Producto de Styling Gratis"
+                  >
+                    Canjear
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="mt-10 card">
+            <h3 class="text-2xl font-semibold text-amber-400 mb-4">
+              Tu Historial de Reservas
+            </h3>
+            <div
+              id="booking-history-list"
+              class="space-y-3 max-h-60 overflow-y-auto"
+            >
+              <p class="text-gray-400">Aún no tienes reservas registradas.</p>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="bg-gray-900 text-gray-400 text-center py-8">
+        <p>
+          &copy; <span id="current-year"></span> Barbería Deluxe. Todos los
+          derechos reservados.
+        </p>
+        <p class="text-sm">
+          Diseñado con <i class="fas fa-heart text-red-500"></i> para tu mejor
+          look.
+        </p>
+      </footer>
+    </div>
+
+    <div id="message-modal" class="modal opacity-0 pointer-events-none">
+      <div class="modal-content">
+        <h3 id="modal-title" class="text-2xl font-semibold mb-4 text-amber-500">
+          Mensaje
+        </h3>
+        <p id="modal-message" class="text-gray-300 mb-6"></p>
+        <button id="modal-close-btn" class="btn-primary w-full">
+          Entendido
+        </button>
+      </div>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>

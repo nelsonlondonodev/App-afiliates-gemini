@@ -1,0 +1,66 @@
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #1a1a1a; /* Fondo oscuro principal */
+  color: #f0f0f0; /* Texto claro principal */
+}
+.nav-link {
+  @apply px-4 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white rounded-md transition-colors;
+}
+.nav-link-active {
+  @apply bg-amber-600 text-white;
+}
+.btn-primary {
+  @apply bg-amber-600 hover:bg-amber-700 text-white font-semibold py-2 px-6 rounded-lg shadow-md transition-transform transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-opacity-50;
+}
+.btn-secondary {
+  @apply bg-gray-600 hover:bg-gray-700 text-white font-semibold py-2 px-6 rounded-lg shadow-md transition-transform transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50;
+}
+.card {
+  @apply bg-gray-800 p-6 rounded-xl shadow-2xl;
+}
+.input-field {
+  @apply w-full px-4 py-3 bg-gray-700 text-gray-200 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 placeholder-gray-400;
+}
+.section {
+  display: none; /* Ocultar secciones por defecto */
+}
+.section.active {
+  display: block; /* Mostrar sección activa */
+}
+.modal {
+  @apply fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 transition-opacity duration-300;
+}
+.modal-content {
+  @apply bg-gray-800 p-8 rounded-lg shadow-xl w-full max-w-md transform transition-all duration-300 scale-95 opacity-0;
+}
+.modal.open .modal-content {
+  @apply scale-100 opacity-100;
+}
+/* Estilo para el logo (SVG simple) */
+.logo-svg {
+  width: 40px;
+  height: 40px;
+  fill: #f0f0f0; /* Color del logo */
+}
+.barber-pole {
+  width: 6px;
+  height: 100%;
+  background: repeating-linear-gradient(
+    -45deg,
+    #d23d2a,
+    #d23d2a 10px,
+    #ffffff 10px,
+    #ffffff 20px,
+    #3a7ca5 20px,
+    #3a7ca5 30px
+  );
+  animation: barberPoleSpin 5s linear infinite;
+}
+@keyframes barberPoleSpin {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 0 60px;
+  } /* Ajusta este valor según el alto total de las franjas */
+}
